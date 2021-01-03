@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <div>你想做: {{ x }}</div>
-    <label>
-      <input name="want" type="radio" v-model="x" value="抽烟">
-      <span>抽烟</span>
-    </label>
-    <label>
-      <input name="want" type="radio" v-model="x" value="喝酒">
-      <span>喝酒</span>
-    </label>
-    <label>
-      <input name="want" type="radio" v-model="x" value="烫头">
-      <span>烫头</span>
-    </label>
+    <select v-model="x">
+      <option value="" disabled>请选择</option>
+      <option :value="item.text" v-for="item in array" :key="item.value">
+        {{ item.text }}
+      </option>
+    </select>
+    <hr/>
+    <div>
+      <span>x : {{ x }}</span>
+    </div>
   </div>
 </template>
 
@@ -22,6 +19,11 @@ export default {
   name: 'App',
   data() {
     return {
+      array: [
+        {text: '抽烟', value: 1},
+        {text: '喝酒', value: 2},
+        {text: '烫头', value: 3}
+      ],
       x: ''
     }
   }
