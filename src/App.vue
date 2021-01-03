@@ -1,8 +1,18 @@
 <template>
   <div id="app">
-    <textarea placeholder="edit me" v-model="message" />
-    <p>Message is: {{message}}</p>
-    <p><button @click="message = 'ddb'">set message to ddb</button></p>
+    <div>爱好: {{ x }}</div>
+    <label>
+      <input type="checkbox" v-model="x" value="抽烟">
+      <span>抽烟</span>
+    </label>
+    <label>
+      <input type="checkbox" v-model="x" value="喝酒">
+      <span>喝酒</span>
+    </label>
+    <label>
+      <input type="checkbox" v-model="x" value="烫头">
+      <span>烫头</span>
+    </label>
   </div>
 </template>
 
@@ -10,9 +20,9 @@
 
 export default {
   name: 'App',
-  data(){
+  data() {
     return {
-      message:'hi'
+      x: []
     }
   }
 }
