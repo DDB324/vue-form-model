@@ -5,9 +5,8 @@
       <hr/>
       <label>
         <span>用户名</span>
-        <input type="text"
-               :value="user.name"
-               @input="user.name = $event.target.value">
+        <MyInput v-model="user.name"/>
+        <MyInput :value="user.name" @input="user.name = $event"/>
       </label>
       <label>
         <span>密码</span>
@@ -19,8 +18,12 @@
 </template>
 
 <script>
+import MyInput from "@/MyInput";
 
 export default {
+  components: {
+    MyInput
+  },
   name: 'App',
   data() {
     return {
