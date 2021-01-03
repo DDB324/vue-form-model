@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <select v-model="x">
-      <option value="" disabled>请选择</option>
-      <option :value="item.text" v-for="item in array" :key="item.value">
-        {{ item.text }}
-      </option>
-    </select>
-    <hr/>
-    <div>
-      <span>x : {{ x }}</span>
-    </div>
+    <form v-on:submit.prevent="onSubmit">
+      用户名:{{ user.name }},密码:{{ user.password }}
+      <hr/>
+      <label>
+        <span>用户名</span>
+        <input type="text" v-model.lazy="user.name">
+      </label>
+      <label>
+        <span>密码</span>
+        <input type="password" v-model="user.password">
+      </label>
+      <button>登录</button>
+    </form>
   </div>
 </template>
 
@@ -19,12 +22,16 @@ export default {
   name: 'App',
   data() {
     return {
-      array: [
-        {text: '抽烟', value: 1},
-        {text: '喝酒', value: 2},
-        {text: '烫头', value: 3}
-      ],
-      x: ''
+      user: {
+        name: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    onSubmit() {
+      const {user: {name, password}} = this
+      console.log(name, password);
     }
   }
 }
