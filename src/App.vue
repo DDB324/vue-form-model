@@ -5,7 +5,9 @@
       <hr/>
       <label>
         <span>用户名</span>
-        <input type="text" v-model.trim="user.name">
+        <input type="text"
+               :value="user.name"
+               @input="user.name = $event.target.value">
       </label>
       <label>
         <span>密码</span>
