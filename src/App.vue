@@ -5,7 +5,7 @@
       <hr/>
       <label>
         <span>用户名</span>
-        <input type="text" v-model.lazy="user.name">
+        <input type="text" v-model.trim="user.name">
       </label>
       <label>
         <span>密码</span>
